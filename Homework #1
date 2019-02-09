@@ -26,7 +26,7 @@ public class testa{
 
     private static boolean isUniqueChar(String s){
 
-    	// False Case
+    	// False Case: If there are a duplicate letter
     	for(int i = 0; i < s.length(); i++) {
     		for(int j = i + 1; j < s.length(); j++) {
     			if(s.charAt(i) == s.charAt(j)) {
@@ -37,7 +37,7 @@ public class testa{
     		}
     	}
     	
-    	// True Case
+    	// True Case: If there are no dupiclate letter
     	System.out.print(true);
     	System.out.print("\t");
 		return true;
@@ -48,6 +48,7 @@ public class testa{
     	// Lowers the case of all strings
     	String x = s.toLowerCase();
     	
+	// Puts all strings into an array called c
     	char[] c = x.toCharArray();
         insertionSort(c);
         for (int i = 0; i < c.length; i++)
@@ -60,7 +61,7 @@ public class testa{
     }
 
     public static void insertionSort(char[] word) {
-    	// Null case
+    	// Null case: if there is no word
         if (word == null || word.length == 0)
             return;
         
@@ -79,15 +80,18 @@ public class testa{
     
 // MAIN
     public static void main(String[] args) {
-    	// Asking for file name, if file is not found then throw exception
+    	
         try {
+	
+	// Asking for file name
+	// If file not found, it will go to catch exception
             System.out.print("Enter the file name with extension : ");
             Scanner scanner = new Scanner(System.in);
             File file = new File(scanner.nextLine());
             scanner = new Scanner(file);
 
             // read in words and determine whether it is composed of unique characters
-            while (scanner.hasNextLine()) {
+	    while (scanner.hasNextLine()) {
                 String s = scanner.nextLine();
                 isUniqueChar(s);
                 sortWord(s);
